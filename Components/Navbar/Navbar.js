@@ -83,7 +83,7 @@ const techSubLinks = [
 ];
 
 const servicesSubLinks = [
-    {Image: Web, label: 'Web Development', href: '/services/web' },
+    {Image: Web, label: 'Web Development', href: '/services/web-development' },
     {Image: App, label: 'App Development', href: '/services/app' },
     {Image: Software, label: 'Software Development', href: '/services/software' },
     {Image: Ecommerce, label: 'Ecommerce Development', href: '/services/ecommerce' },
@@ -138,9 +138,9 @@ const Navbar = () => {
                                         <FaChevronDown className="ml-1 text-xs mt-1" />
                                     </span>
                                     <div
-                                        className={`absolute -left-60 mt-1.5 bg-white shadow-2xl rounded-xl z-20 min-w-[1020px] px-8 py-8 transition-all duration-200
-                      ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
-                    `}
+                                        className={`absolute -left-60 mt-1.5 bg-white shadow-2xl rounded-xl z-[9999] min-w-[1020px] px-8 py-8 transition-all duration-200
+    ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
+    `}
                                         style={{ top: '60px' }}
                                     >
                                         <div className="grid grid-cols-6 gap-6">
@@ -172,9 +172,9 @@ const Navbar = () => {
                                         <FaChevronDown className="ml-1 text-xs mt-1" />
                                     </span>
                                     <div
-                                        className={`absolute -left-90 mt-1.5 bg-white shadow-2xl rounded-xl z-20 min-w-[1020px] px-8 py-8 transition-all duration-200
-                      ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
-                    `}
+                                        className={`absolute -left-90 mt-1.5 bg-white shadow-2xl rounded-xl z-[9999] min-w-[1020px] px-8 py-8 transition-all duration-200
+    ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
+    `}
                                         style={{ top: '60px' }}
                                     >
                                         <div className="grid grid-cols-4 gap-6 ">
@@ -207,9 +207,9 @@ const Navbar = () => {
                                         <FaChevronDown className="ml-1 text-xs mt-1" />
                                     </span>
                                     <div
-                                        className={`absolute left-0 mt-2 bg-[#262323] shadow-lg rounded z-10 min-w-[160px] transition-all duration-200
-                      ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
-                    `}
+                                        className={`absolute left-0 mt-2 bg-[#262323] shadow-lg rounded z-[9999] min-w-[160px] transition-all duration-200
+    ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
+    `}
                                     >
                                         {link.subLinks.map((sub) => (
                                             <a

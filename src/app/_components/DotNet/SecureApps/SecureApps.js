@@ -1,11 +1,11 @@
 import React from 'react'
-import SecureApps from '../../../../../Components/Images/secureapps.svg'
+import SecureAppss from '../../../../../Components/Images/secureapps.svg'
 import Image from 'next/image'
 const SecureApps = () => {
   return (
     <div>
       <div className="secure-apps-left">
-        <Image className='' alt='Secure Apps' src={SecureApps} width={300} height={300}/>
+        <Image className='' alt='Secure Apps' src={SecureAppss} width={300} height={300}/>
       </div>
       <div className="secure-apps-right">
         <h1>Build secure apps</h1>
