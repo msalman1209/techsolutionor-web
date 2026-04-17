@@ -1,13 +1,14 @@
 "use client"
 import React, { useCallback } from 'react'
-import Particles from "@tsparticles/react";
-import { loadFull } from "tsparticles";
+import Particles from "react-tsparticles";
+import { loadLinksPreset } from "tsparticles-preset-links";
 import BannerImage from '../../../../../Components/Images/homebanner.png'
 import Image from 'next/image';
 
 const HomeBanner = () => {
+  // Load the links preset for particles
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
+    await loadLinksPreset(engine);
   }, []);
 
   return (
@@ -19,6 +20,7 @@ const HomeBanner = () => {
           className="w-full h-full"
           init={particlesInit}
           options={{
+            preset: "links",
             background: { color: "#fff" },
             fullScreen: { enable: false },
             particles: {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import Particles from '@tsparticles/react';
+import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 
 export default function ParticlesBackground() {
