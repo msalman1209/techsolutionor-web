@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Logo from '../../Components/Images/Logo.png'
 import Image from 'next/image'
-import { FaChevronDown, FaBars, FaTimes, FaArrowRight } from "react-icons/fa";
+import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
 import { usePathname } from 'next/navigation'
 import Link from 'next/link';
 import Laraval from '../../Components/Images/laraval.png'
@@ -73,7 +73,7 @@ const techSubLinks = [
     { Image: Shopfiy, label: 'Shopify', href: '/technologies/shopify', border: 'border-green-400' },
     { Image: Magento, label: 'Magento', href: '/technologies/magento', border: 'border-orange-400' },
     { Image: Css, label: 'CSS', href: '/technologies/css', border: 'border-blue-400' },
-    { Image: Net, label: '.NET', href: '/technologies/dotnet', border: 'border-purple-400' },
+    { Image: Net, label: '.NET', href: '/technologies/net', border: 'border-purple-400' },
     { Image: Flutter, label: 'Flutter', href: '/technologies/flutter', border: 'border-blue-400' },
     { Image: Figma, label: 'Figma', href: '/technologies/figma', border: 'border-purple-400' },
     { Image: Meta, label: 'Meta', href: '/technologies/meta', border: 'border-blue-400' },
@@ -83,7 +83,7 @@ const techSubLinks = [
 ];
 
 const servicesSubLinks = [
-    {Image: Web, label: 'Web Development', href: '/services/web-development' },
+    {Image: Web, label: 'Web Development', href: '/services/web' },
     {Image: App, label: 'App Development', href: '/services/app' },
     {Image: Software, label: 'Software Development', href: '/services/software' },
     {Image: Ecommerce, label: 'Ecommerce Development', href: '/services/ecommerce' },
@@ -148,9 +148,14 @@ const Navbar = () => {
                                                 <a
                                                     key={sub.label}
                                                     href={sub.href}
-                                                    className={`block px-4 py-2 text-white transition-colors duration-200 hover:text-[#41B349] hover:bg-gray-700 ${pathname === sub.href ? 'text-[#41B349]' : ''}`}
+                                                    className={`flex flex-col items-center justify-center h-[120px] w-[150px] bg-white ${sub.border} border-2 rounded-xl p-4 transition-shadow duration-200 hover:shadow-lg hover:border-[#41B349]`}
                                                 >
-                                                    {sub.label}
+                                                    {/* Placeholder for image */}
+                                                    <div className="mb-2 w-[48px] h-[48px] flex items-center justify-center">
+                                                        {/* Add image here later */}
+                                                        <Image src={sub.Image} alt={sub.label} width={40} height={40} className='object-contain' />
+                                                    </div>
+                                                    <span className="text-black font-semibold text-lg text-center">{sub.label}</span>
                                                 </a>
                                             ))}
                                         </div>
