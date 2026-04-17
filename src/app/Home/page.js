@@ -5,6 +5,10 @@ import GoodServices from '../_components/Home/GoodServices/GoodServices'
 import ServicesWeOffer from '../_components/Home/ServicesWeOffer/ServicesWeOffer'
 import Projects from '../_components/Home/Projects/Projects'
 import Technology from '../_components/Home/Technology/Technology'
+import Newsletter from '../_components/Home/Newsletter/Newsletter'
+import Testimonials from '../_components/Home/Testimonials/Testimonials'
+import ChallengeAccepted from '../_components/Home/ChallengeAccepted/ChallengeAccepted'
+import Counter from '../_components/Home/Counter/Counter'
 
 const HomePage = () => {
   return (
@@ -15,6 +19,10 @@ const HomePage = () => {
       <ServicesWeOffer/>
       <Projects/>
       <Technology/>
+      <Newsletter/>
+      <Testimonials/>
+      <ChallengeAccepted/>
+      <Counter/>
     </div>
   )
 }
