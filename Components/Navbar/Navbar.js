@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Logo from '../../Components/Images/Logo.png'
 import Image from 'next/image'
-import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
+import { FaChevronDown, FaBars, FaTimes, FaArrowRight } from "react-icons/fa";
 import { usePathname } from 'next/navigation'
 import Link from 'next/link';
 import Laraval from '../../Components/Images/laraval.png'
@@ -112,162 +112,126 @@ const Navbar = () => {
 
     return (
         <>
-            {/* Desktop Navbar */}
-            <nav className='bg-[#262323] w-full h-[90px] flex items-center justify-between px-10 lg:px-20 lg:pl-40 py-10'
-                style={{ boxShadow: "0px 5px 15px 0px #262323" }}>
-                <div className="navbar-logo">
-                    <Link href='/'><Image src={Logo} alt="Logo" width={200} height={50} className='w-[70px] h-[45.6px]' /></Link>
-                </div>
-                {/* Desktop links/buttons */}
-                <div className="hidden lg:flex navbar-links items-center gap-2 ml-10">
-                    {navLinks.map((link, idx) => (
-                        <div
-                            key={link.label}
-                            className="relative"
-                            onMouseEnter={() => link.subLinks && setDropdownIndex(idx)}
-                            onMouseLeave={() => link.subLinks && setDropdownIndex(null)}
-                        >
-                            {idx === 0 ? (
-                                // Technologies dropdown with grid cards
-                                <>
-                                    <span
-                                        className={`cursor-pointer text-[15px] text-white px-3 py-2 flex items-center gap-1 transition-colors duration-200 hover:text-[#41B349] ${isActive(link) ? 'text-[#41B349]' : ''
-                                            }`}
-                                    >
-                                        {link.label}
-                                        <FaChevronDown className="ml-1 text-xs mt-1" />
-                                    </span>
-                                    <div
-                                        className={`absolute -left-60 mt-1.5 bg-white shadow-2xl rounded-xl z-20 min-w-[1020px] px-8 py-8 transition-all duration-200
-                      ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
-                    `}
-                                        style={{ top: '60px' }}
-                                    >
-                                        <div className="grid grid-cols-6 gap-6">
-                                            {techSubLinks.map((sub, i) => (
+            {/* Desktop Navbar with centered mega menu overlay */}
+            <div className="relative" onMouseLeave={() => setDropdownIndex(null)}>
+                <nav
+                    className='bg-[#262323] w-full h-[90px] flex items-center justify-between px-10 lg:px-20 lg:pl-40 py-10'
+                    style={{ boxShadow: "0px 5px 15px 0px #262323" }}
+                >
+                    <div className="navbar-logo">
+                        <Link href='/'><Image src={Logo} alt="Logo" width={200} height={50} className='w-[70px] h-[45.6px]' /></Link>
+                    </div>
+                    {/* Desktop links/buttons */}
+                    <div className="hidden lg:flex navbar-links items-center gap-2 ml-10">
+                        {navLinks.map((link, idx) => {
+                            const isDropdown = !!link.subLinks;
+                            const isMega = idx === 0 || idx === 1; // 0: Technologies, 1: Services
+                            return (
+                                <div
+                                    key={link.label}
+                                    className="relative"
+                                    onMouseEnter={() => isDropdown && setDropdownIndex(idx)}
+                                    onFocus={() => isDropdown && setDropdownIndex(idx)}
+                                >
+                                    {isDropdown ? (
+                                        <span
+                                            className={`cursor-pointer text-[15px] text-white px-3 py-2 flex items-center gap-1 transition-colors duration-200 hover:text-[#41B349] ${isActive(link) ? 'text-[#41B349]' : ''}`}
+                                        >
+                                            {link.label}
+                                            <FaChevronDown className="ml-1 text-xs mt-1" />
+                                        </span>
+                                    ) : (
+                                        <a
+                                            href={link.href}
+                                            className={`text-white px-3 py-2 transition-colors duration-200 hover:text-[#41B349] ${isActive(link) ? 'text-[#41B349]' : ''}`}
+                                        >
+                                            {link.label}
+                                        </a>
+                                    )}
+                                    {/* Small dropdown for any non-mega dropdown groups */}
+                                    {isDropdown && !isMega && (
+                                        <div
+                                            className={`absolute left-0 mt-2 bg-[#262323] shadow-lg rounded z-10 min-w-[160px] transition-all duration-200 ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}
+                                        >
+                                            {link.subLinks.map((sub) => (
                                                 <a
                                                     key={sub.label}
                                                     href={sub.href}
-                                                    className={`flex flex-col items-center justify-center h-[120px] w-[150px] bg-white ${sub.border} border-2 rounded-xl p-4 transition-shadow duration-200 hover:shadow-lg hover:border-[#41B349]`}
+                                                    className={`block px-4 py-2 text-white transition-colors duration-200 hover:text-[#41B349] hover:bg-gray-700 ${pathname === sub.href ? 'text-[#41B349]' : ''}`}
                                                 >
-                                                    {/* Placeholder for image */}
-                                                    <div className="mb-2 w-[48px] h-[48px] flex items-center justify-center">
-                                                        {/* Add image here later */}
-                                                        <Image src={sub.Image} alt={sub.label} width={40} height={40} className='object-contain' />
-                                                    </div>
-                                                    <span className="text-black font-semibold text-lg text-center">{sub.label}</span>
+                                                    {sub.label}
                                                 </a>
                                             ))}
                                         </div>
-                                    </div>
-                                </>
-                            ) : idx === 1 ? (
-                                // Services dropdown with grid cards
-                                <div className='relative'>
-                                    <span
-                                        className={`cursor-pointer text-white px-3 py-2 flex items-center gap-1 transition-colors duration-200 hover:text-[#41B349] ${isActive(link) ? 'text-[#41B349]' : ''
-                                            }`}
-                                    >
-                                        {link.label}
-                                        <FaChevronDown className="ml-1 text-xs mt-1" />
-                                    </span>
-                                    <div
-                                        className={`absolute -left-90 mt-1.5 bg-white shadow-2xl rounded-xl z-20 min-w-[1020px] px-8 py-8 transition-all duration-200
-                      ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
-                    `}
-                                        style={{ top: '60px' }}
-                                    >
-                                        <div className="grid grid-cols-4 gap-6 ">
-                                            {servicesSubLinks.map((sub, i) => (
-                                                <div key={i} className='border-l-2 border-l-[#41B349] px-2'>
-                                                    <a
-                                                        key={sub.label}
-                                                        href={sub.href}
-                                                        className={`flex flex-row items-center h-[80px] w-[230px] rounded-[20px]  px-2 bg-white transition-all duration-200 hover:bg-[#41B349]/20`}
-                                                    >
-                                                        {/* Placeholder for image */}
-                                                        <div className="mr-4 w-[80px] h-[48px] flex items-center justify-center">
-                                                            <Image src={sub.Image} alt={sub.label} width={100} height={40} className='object-contain' />
-                                                        </div>
-                                                        <span className="text-black font-semibold text-lg">{sub.label}</span>
-                                                    </a>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
+                                    )}
                                 </div>
-                            ) : link.subLinks ? (
-                                // ...existing code for other dropdowns...
-                                <>
-                                    <span
-                                        className={`cursor-pointer text-white px-3 py-2 flex items-center gap-1 transition-colors duration-200 hover:text-[#41B349] ${isActive(link) ? 'text-[#41B349]' : ''
-                                            }`}
-                                    >
-                                        {link.label}
-                                        <FaChevronDown className="ml-1 text-xs mt-1" />
-                                    </span>
-                                    <div
-                                        className={`absolute left-0 mt-2 bg-[#262323] shadow-lg rounded z-10 min-w-[160px] transition-all duration-200
-                      ${dropdownIndex === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
-                    `}
-                                    >
-                                        {link.subLinks.map((sub) => (
-                                            <a
-                                                key={sub.label}
-                                                href={sub.href}
-                                                className={`block px-4 py-2 text-white transition-colors duration-200 hover:text-[#41B349] hover:bg-gray-700 ${pathname === sub.href ? 'text-[#41B349]' : ''
-                                                    }`}
-                                            >
-                                                {sub.label}
-                                            </a>
-                                        ))}
-                                    </div>
-                                </>
+                            )
+                        })}
+                    </div>
+                    <div className="hidden lg:flex navbar-buttons items-center gap-4">
+                        <button
+                            className="bg-[#41B349] text-white text-[15px] font-medium w-[104px] h-[39px] rounded-[20px] hover:bg-white hover:text-black transition ease-in-out duration-200 cursor-pointer"
+                        >
+                            Get POS
+                        </button>
+                        <button
+                            className="bg-[#41B349] text-white text-[15px] font-medium w-[104px] h-[39px] rounded-[20px] hover:bg-white hover:text-black transition ease-in-out duration-200 cursor-pointer"
+                        >
+                            Get a Quote
+                        </button>
+                    </div>
+                    {/* Mobile menu button */}
+                    <button
+                        className="lg:hidden  flex items-center justify-between text-white text-2xl"
+                        onClick={() => setMobileOpen(true)}
+                        aria-label="Open menu"
+                    >
+                        <FaBars />
+                    </button>
+                </nav>
+
+                {/* Global centered mega menu overlay (below the nav) */}
+                {(dropdownIndex === 0 || dropdownIndex === 1) && (
+                    <div className="absolute left-1/2 -translate-x-1/2 top-[90px] z-40 w-full flex justify-center">
+                        <div className={`relative bg-white/95 backdrop-blur-xl shadow-2xl ring-1 ring-black/5 rounded-2xl w-[1040px] px-8 py-7 transition-all duration-200 ${dropdownIndex !== null ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                            {/* Arrow indicator */}
+                            <div className="absolute left-1/2 -translate-x-1/2 -top-2 h-4 w-4 bg-white/95 rotate-45 ring-1 ring-black/5" />
+                            {dropdownIndex === 0 ? (
+                                <div className="grid grid-cols-6 gap-6">
+                                    {techSubLinks.map((sub) => (
+                                        <a
+                                            key={sub.label}
+                                            href={sub.href}
+                                            className={`group flex flex-col items-center justify-center h-[120px] w-[150px] bg-white ${sub.border} border-2 rounded-xl p-4 transition-all hover:shadow-lg hover:-translate-y-0.5 hover:border-[#41B349] focus:outline-none focus:ring-2 focus:ring-[#41B349]/40`}
+                                        >
+                                            <div className="mb-2 w-[48px] h-[48px] flex items-center justify-center">
+                                                <Image src={sub.Image} alt={sub.label} width={40} height={40} className='object-contain transition-transform duration-200 group-hover:scale-105' />
+                                            </div>
+                                            <span className="text-black font-semibold text-sm text-center">{sub.label}</span>
+                                        </a>
+                                    ))}
+                                </div>
                             ) : (
-                                // ...existing code for normal links...
-                                <a
-                                    href={link.href}
-                                    className={`text-white px-3 py-2 transition-colors duration-200 hover:text-[#41B349] ${isActive(link) ? 'text-[#41B349]' : ''
-                                        }`}
-                                >
-                                    {link.label}
-                                </a>
+                                <div className="grid grid-cols-4 gap-6">
+                                    {servicesSubLinks.map((sub, i) => (
+                                        <div key={`${sub.label}-${i}`} className='border-l-2 border-l-[#41B349] px-2'>
+                                            <a
+                                                href={sub.href}
+                                                className={`flex flex-row items-center h-[80px] w-[230px] rounded-[20px] px-2 bg-white transition-all duration-200 hover:bg-[#41B349]/20`}
+                                            >
+                                                <div className="mr-4 w-[80px] h-[48px] flex items-center justify-center">
+                                                    <Image src={sub.Image} alt={sub.label} width={100} height={40} className='object-contain' />
+                                                </div>
+                                                <span className="text-black font-semibold text-lg">{sub.label}</span>
+                                            </a>
+                                        </div>
+                                    ))}
+                                </div>
                             )}
                         </div>
-                    ))}
-                </div>
-                <div className="hidden lg:flex navbar-buttons items-center gap-4">
-                    <button
-                    className="bg-[#41B349] text-white text-[15px] font-medium w-[104px] h-[39px] rounded-[20px] hover:bg-white hover:text-black transition ease-in-out duration-200 cursor-pointer"
-                        
-                    >
-                        Get POS
-                    </button>
-                    <button
-                    className="bg-[#41B349] text-white text-[15px] font-medium w-[104px] h-[39px] rounded-[20px] hover:bg-white hover:text-black transition ease-in-out duration-200 cursor-pointer"
-
-                        // style={{
-                        //     backgroundColor: '#41B349',
-                        //     color: '#fff',
-                        //     fontSize: '15px',
-                        //     fontWeight: 500,
-                        //     width: '130px',
-                        //     height: '39px',
-                        //     borderRadius: '20px',
-                        // }}
-                    >
-                        Get a Quote
-                    </button>
-                </div>
-                {/* Mobile menu button */}
-                <button
-                    className="lg:hidden  flex items-center justify-between text-white text-2xl"
-                    onClick={() => setMobileOpen(true)}
-                    aria-label="Open menu"
-                >
-                    <FaBars />
-                </button>
-            </nav>
+                    </div>
+                )}
+            </div>
 
             {/* Mobile Navbar Overlay */}
             <div
