@@ -47,8 +47,8 @@ const navLinks = [
     {
         label: 'Services',
         subLinks: [
-            { label: 'E-commerce', href: '/solutions/ecommerce' },
-            { label: 'CRM', href: '/solutions/crm' },
+            { label: 'Web Development', href: '/services/web-development' },
+            { label: 'App Development', href: '/services/app-development' },
         ],
     },
     {
@@ -91,8 +91,8 @@ const techSubLinks = [
 ];
 
 const servicesSubLinks = [
-    {Image: Web, label: 'Web Development', href: '/services/web' },
-    {Image: App, label: 'App Development', href: '/services/app' },
+    {Image: Web, label: 'Web Development', href: '/services/web-development' },
+    {Image: App, label: 'App Development', href: '/services/app-development' },
     {Image: Software, label: 'Software Development', href: '/services/software' },
     {Image: Ecommerce, label: 'Ecommerce Development', href: '/services/ecommerce' },
     {Image: Graphics, label: 'Graphics & UI/UX', href: '/services/graphics' },
