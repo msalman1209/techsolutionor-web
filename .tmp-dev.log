@@ -1,0 +1,151 @@
+yarn run v1.22.22
+$ next dev --turbopack
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\ACS\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\ACS\Desktop\techsolutionor\tech\techsolutionor-web\package-lock.json
+   * C:\Users\ACS\Desktop\techsolutionor\tech\package-lock.json
+
+ ⚠ Port 3000 is in use by process 16768, using available port 3003 instead.
+   ▲ Next.js 15.5.3 (Turbopack)
+   - Local:        http://localhost:3003
+   - Network:      http://192.168.18.98:3003
+
+ ✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\ACS\\Desktop\\techsolutionor\\tech\\techsolutionor-web',
+  testMode: true
+}
+ ✓ Ready in 2.4s
+ ○ Compiling / ...
+ ✓ Compiled / in 15.8s
+ GET / 200 in 20147ms
+ GET / 200 in 1264ms
+ GET / 200 in 777ms
+ ○ Compiling /Home ...
+ ✓ Compiled /Home in 1126ms
+ GET /Home 200 in 2129ms
+ ○ Compiling /services/web-development ...
+ ✓ Compiled /services/web-development in 670ms
+ GET /services/web-development 200 in 1529ms
+ ○ Compiling /technologies/analytics ...
+ ✓ Compiled /technologies/analytics in 602ms
+ GET /technologies/analytics 200 in 1260ms
+ ○ Compiling /technologies/angular ...
+ ✓ Compiled /technologies/angular in 552ms
+ GET /technologies/angular 200 in 1229ms
+ ○ Compiling /technologies/css ...
+ ✓ Compiled /technologies/css in 775ms
+ ⚠ ./Desktop/techsolutionor/tech/techsolutionor-web/src/Components/Images/cssbg.avif
+AVIF image not supported
+This version of Turbopack does not support AVIF images, will emit without optimization or encoding
+
+Import trace:
+  Server Component:
+    ./Desktop/techsolutionor/tech/techsolutionor-web/src/Components/Images/cssbg.avif
+    ./Desktop/techsolutionor/tech/techsolutionor-web/src/app/_components/Css/CssBanner/JavaBanner.js
+    ./Desktop/techsolutionor/tech/techsolutionor-web/src/app/technologies/css/page.js
+
+
+ GET /technologies/css 200 in 1394ms
+ ○ Compiling /technologies/dotnet ...
+ ✓ Compiled /technologies/dotnet in 1003ms
+ GET /technologies/dotnet 200 in 1936ms
+ ○ Compiling /technologies/figma ...
+ ✓ Compiled /technologies/figma in 596ms
+ GET /technologies/figma 200 in 1175ms
+ ○ Compiling /technologies/flutter ...
+ ✓ Compiled /technologies/flutter in 706ms
+ GET /technologies/flutter 200 in 1320ms
+ ○ Compiling /technologies/google-ads ...
+ ✓ Compiled /technologies/google-ads in 850ms
+ GET /technologies/google-ads 200 in 1411ms
+ ○ Compiling /technologies/html ...
+ ✓ Compiled /technologies/html in 766ms
+ GET /technologies/html 200 in 1623ms
+ ○ Compiling /technologies/javascript ...
+ ✓ Compiled /technologies/javascript in 617ms
+ GET /technologies/javascript 200 in 1255ms
+ ○ Compiling /technologies/laravel ...
+ ✓ Compiled /technologies/laravel in 695ms
+ GET /technologies/laravel 200 in 1349ms
+ ○ Compiling /technologies/magento ...
+ ✓ Compiled /technologies/magento in 864ms
+ GET /technologies/magento 200 in 1454ms
+ ○ Compiling /technologies/meta ...
+ ✓ Compiled /technologies/meta in 769ms
+ GET /technologies/meta 200 in 1566ms
+ ○ Compiling /technologies/php ...
+ ✓ Compiled /technologies/php in 652ms
+ GET /technologies/php 200 in 1218ms
+ ○ Compiling /technologies/python ...
+ ✓ Compiled /technologies/python in 655ms
+ GET /technologies/python 200 in 1231ms
+ ○ Compiling /technologies/react ...
+ ✓ Compiled /technologies/react in 839ms
+ GET /technologies/react 200 in 1393ms
+ ○ Compiling /technologies/shopify ...
+ ✓ Compiled /technologies/shopify in 534ms
+ ⚠ ./Desktop/techsolutionor/tech/techsolutionor-web/src/Components/Images/shopifybg.avif
+AVIF image not supported
+This version of Turbopack does not support AVIF images, will emit without optimization or encoding
+
+Import trace:
+  Server Component:
+    ./Desktop/techsolutionor/tech/techsolutionor-web/src/Components/Images/shopifybg.avif
+    ./Desktop/techsolutionor/tech/techsolutionor-web/src/app/_components/Shopify/ShopifyBanner/JavaBanner.js
+    ./Desktop/techsolutionor/tech/techsolutionor-web/src/app/technologies/shopify/page.js
+
+
+ GET /technologies/shopify 200 in 1386ms
+ ○ Compiling /technologies/swift ...
+ ✓ Compiled /technologies/swift in 568ms
+ GET /technologies/swift 200 in 1225ms
+ ○ Compiling /technologies/wordpress ...
+ ✓ Compiled /technologies/wordpress in 668ms
+ GET /technologies/wordpress 200 in 1249ms
+ ○ Compiling /_not-found/page ...
+ ✓ Compiled /_not-found/page in 524ms
+ GET /services/web 404 in 1431ms
+ GET /services/app 404 in 771ms
+ GET /solutions/ecommerce 404 in 496ms
+ GET /solutions/crm 404 in 611ms
+ GET /about 404 in 721ms
+ GET /portfolio 404 in 780ms
+ GET /blog 404 in 550ms
+ GET /contact 404 in 578ms
+ GET /services/software 404 in 600ms
+ GET /services/ecommerce 404 in 759ms
+ GET /services/graphics 404 in 679ms
+ GET /services/social-media 404 in 555ms
+ GET /services/digital-marketing 404 in 524ms
+ GET /services/ppc-amazon 404 in 811ms
+ GET /services/seo 404 in 776ms
+ GET /services/content-writing 404 in 576ms
+ GET /services/call-center 404 in 548ms
+ GET /services/hire-us 404 in 527ms
+ GET /technologies/net 404 in 752ms
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.3 (Turbopack)
+   - Local:        http://localhost:3003
+   - Network:      http://192.168.18.98:3003
+
+ ✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\ACS\\Desktop\\techsolutionor\\tech\\techsolutionor-web',
+  testMode: true
+}
+ ✓ Ready in 5.6s
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.3 (Turbopack)
+   - Local:        http://localhost:3003
+   - Network:      http://192.168.18.98:3003
+
+ ✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\ACS\\Desktop\\techsolutionor\\tech\\techsolutionor-web',
+  testMode: true
+}
+ ✓ Ready in 6.5s

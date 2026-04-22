@@ -1,40 +1,40 @@
 "use client"
 import React, { useState } from 'react'
-import Logo from '../../Components/Images/Logo.png'
+import Logo from '@/Components/Images/Logo.png'
 import Image from 'next/image'
 import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
 import { usePathname } from 'next/navigation'
 import Link from 'next/link';
-import Laraval from '../../Components/Images/laraval.png'
-import Javascript from '../../Components/Images/js.png'
-import Reactjs from '../../Components/Images/reactjs.png'
-import Python from '../../Components/Images/python.png'
-import Swift from '../../Components/Images/swift.png'
-import Html from '../../Components/Images/html.png'
-import Php from '../../Components/Images/php.png'
-import Wp from '../../Components/Images/wp.png'
-import Shopfiy from '../../Components/Images/shopify.png'
-import Magento from '../../Components/Images/magento.png'
-import Css from '../../Components/Images/css.png'
-import Net from '../../Components/Images/net.png'
-import Flutter from '../../Components/Images/flutter.png'
-import Figma from '../../Components/Images/figma.png'
-import Meta from '../../Components/Images/meta.png'
-import Analytics from '../../Components/Images/nalytics.png'
-import GoogleAds from '../../Components/Images/googleads.png'
-import Angular from '../../Components/Images/angular.png'
-import Web from '../../Components/Images/web.png'
-import App from '../../Components/Images/app.png'
-import Software from '../../Components/Images/software.png'
-import Ecommerce from '../../Components/Images/ecommerce.png'
-import Graphics from '../../Components/Images/graphics.png'
-import SocialMedia from '../../Components/Images/socialmedia.png'
-import Digital from '../../Components/Images/digital.png'
-import Ppc from '../../Components/Images/ppc.png'
-import Seo from '../../Components/Images/seo.png'
-import Content from '../../Components/Images/content.png'
-import Call from '../../Components/Images/call.png'
-import Hire from '../../Components/Images/hire.png'
+import Laraval from '@/Components/Images/laraval.png'
+import Javascript from '@/Components/Images/js.png'
+import Reactjs from '@/Components/Images/reactjs.png'
+import Python from '@/Components/Images/python.png'
+import Swift from '@/Components/Images/swift.png'
+import Html from '@/Components/Images/html.png'
+import Php from '@/Components/Images/php.png'
+import Wp from '@/Components/Images/wp.png'
+import Shopfiy from '@/Components/Images/shopify.png'
+import Magento from '@/Components/Images/magento.png'
+import Css from '@/Components/Images/css.png'
+import Net from '@/Components/Images/net.png'
+import Flutter from '@/Components/Images/flutter.png'
+import Figma from '@/Components/Images/figma.png'
+import Meta from '@/Components/Images/meta.png'
+import Analytics from '@/Components/Images/nalytics.png'
+import GoogleAds from '@/Components/Images/googleads.png'
+import Angular from '@/Components/Images/angular.png'
+import Web from '@/Components/Images/web.png'
+import App from '@/Components/Images/app.png'
+import Software from '@/Components/Images/software.png'
+import Ecommerce from '@/Components/Images/ecommerce.png'
+import Graphics from '@/Components/Images/graphics.png'
+import SocialMedia from '@/Components/Images/socialmedia.png'
+import Digital from '@/Components/Images/digital.png'
+import Ppc from '@/Components/Images/ppc.png'
+import Seo from '@/Components/Images/seo.png'
+import Content from '@/Components/Images/content.png'
+import Call from '@/Components/Images/call.png'
+import Hire from '@/Components/Images/hire.png'
 // Navlinks data
 const navLinks = [
     {
@@ -47,16 +47,24 @@ const navLinks = [
     {
         label: 'Services',
         subLinks: [
-            { label: 'E-commerce', href: '/solutions/ecommerce' },
-            { label: 'CRM', href: '/solutions/crm' },
+            { label: 'Web Development', href: '/services/web-development' },
+            { label: 'App Development', href: '/services/app-development' },
         ],
     },
     {
-        label: 'Portfolio',
+        label: 'About Us',
         href: '/about',
     },
     {
-        label: 'About Us',
+        label: 'Portfolio',
+        href: '/portfolio',
+    },
+    {
+        label: 'Blog',
+        href: '/blog',
+    },
+    {
+        label: 'Contact Us',
         href: '/contact',
     },
 ];
@@ -83,8 +91,8 @@ const techSubLinks = [
 ];
 
 const servicesSubLinks = [
-    {Image: Web, label: 'Web Development', href: '/services/web' },
-    {Image: App, label: 'App Development', href: '/services/app' },
+    {Image: Web, label: 'Web Development', href: '/services/web-development' },
+    {Image: App, label: 'App Development', href: '/services/app-development' },
     {Image: Software, label: 'Software Development', href: '/services/software' },
     {Image: Ecommerce, label: 'Ecommerce Development', href: '/services/ecommerce' },
     {Image: Graphics, label: 'Graphics & UI/UX', href: '/services/graphics' },
@@ -145,7 +153,7 @@ const Navbar = () => {
                                     >
                                         <div className="grid grid-cols-6 gap-6">
                                             {techSubLinks.map((sub, i) => (
-                                                <a
+                                                <Link
                                                     key={sub.label}
                                                     href={sub.href}
                                                     className={`flex flex-col items-center justify-center h-[120px] w-[150px] bg-white ${sub.border} border-2 rounded-xl p-4 transition-shadow duration-200 hover:shadow-lg hover:border-[#41B349]`}
@@ -156,7 +164,7 @@ const Navbar = () => {
                                                         <Image src={sub.Image} alt={sub.label} width={40} height={40} className='object-contain' />
                                                     </div>
                                                     <span className="text-black font-semibold text-lg text-center">{sub.label}</span>
-                                                </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>
@@ -180,7 +188,7 @@ const Navbar = () => {
                                         <div className="grid grid-cols-4 gap-6 ">
                                             {servicesSubLinks.map((sub, i) => (
                                                 <div key={i} className='border-l-2 border-l-[#41B349] px-2'>
-                                                    <a
+                                                    <Link
                                                         key={sub.label}
                                                         href={sub.href}
                                                         className={`flex flex-row items-center h-[80px] w-[230px] rounded-[20px]  px-2 bg-white transition-all duration-200 hover:bg-[#41B349]/20`}
@@ -190,7 +198,7 @@ const Navbar = () => {
                                                             <Image src={sub.Image} alt={sub.label} width={100} height={40} className='object-contain' />
                                                         </div>
                                                         <span className="text-black font-semibold text-lg">{sub.label}</span>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             ))}
                                         </div>
@@ -212,26 +220,26 @@ const Navbar = () => {
                     `}
                                     >
                                         {link.subLinks.map((sub) => (
-                                            <a
+                                            <Link
                                                 key={sub.label}
                                                 href={sub.href}
                                                 className={`block px-4 py-2 text-white transition-colors duration-200 hover:text-[#41B349] hover:bg-gray-700 ${pathname === sub.href ? 'text-[#41B349]' : ''
                                                     }`}
                                             >
                                                 {sub.label}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </>
                             ) : (
                                 // ...existing code for normal links...
-                                <a
+                                <Link
                                     href={link.href}
                                     className={`text-white px-3 py-2 transition-colors duration-200 hover:text-[#41B349] ${isActive(link) ? 'text-[#41B349]' : ''
                                         }`}
                                 >
                                     {link.label}
-                                </a>
+                                </Link>
                             )}
                         </div>
                     ))}
